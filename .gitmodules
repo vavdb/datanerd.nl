@@ -1,0 +1,3 @@
+[submodule "themes/datanerd.nl"]
+	path = themes/datanerd.nl
+	url = https://github.com/vavdb/theme-datanerd.nl/
