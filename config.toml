@@ -118,28 +118,28 @@ url = "/"
 weight = 1
 
 [[Languages.nl.menu.main]]
-name = "About me"
+name = "Over Ons"
 pre = "#"
 url = "about"
 weight = 2
 
 [[Languages.nl.menu.main]]
-name = "Service"
+name = "Diensten"
 pre = "#"
 url = "service"
 weight = 3
 
-[[Languages.nl.menu.main]]
-name = "Portfolio"
-pre = "#"
-url = "portfolio"
-weight = 4
+#[[Languages.nl.menu.main]]
+#name = "Portfolio"
+#pre = "#"
+#url = "portfolio"
+#weight = 4
 
-[[Languages.nl.menu.main]]
-name = "Testimonial"
-pre = "#"
-url = "testimonial"
-weight = 5
+#[[Languages.nl.menu.main]]
+#name = "Testimonial"
+#pre = "#"
+#url = "testimonial"
+#weight = 5
 
 [[Languages.nl.menu.main]]
 name = "Contact"
