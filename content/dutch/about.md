@@ -10,7 +10,7 @@ button:
 ########################### Experience ##############################
 experience:
   enable : true
-  title : "Wat we doen"
+  title : "Specialismes"
   experience_list:
     # experience item loop
     - name : "Data Analyse"
