@@ -1,5 +1,5 @@
 ---
-title : "Data Nerd"
+title : "DataNerd"
 # full screen navigation
 first_name : "Leydi"
 last_name : "van den Braken"

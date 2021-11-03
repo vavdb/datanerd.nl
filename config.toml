@@ -106,7 +106,7 @@ contentDir = "content/dutch"
 weight = 1
 home = "Home"
 # copyright
-copyright = "Copyright &copy; 2021 Data Nerd"
+copyright = "Copyright &copy; 2021 DataNerd"
 
 
 ################# english navigation ##################
