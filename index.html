@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datanerd</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="logo-1.svg">
+    <link rel="icon" type="image/png" href="logo-1.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        .space-mono-regular {
+            font-family: "Space Mono", monospace;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .space-mono-bold {
+            font-family: "Space Mono", monospace;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .space-mono-regular-italic {
+            font-family: "Space Mono", monospace;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .space-mono-bold-italic {
+            font-family: "Space Mono", monospace;
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .logo {
+            max-width: 200px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(90deg, #f450f9, #c2185b);
+            border-radius: 20px;
+            animation: gradient-shift 6s infinite linear;
+        }
+
+        @keyframes gradient-shift {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .title {
+            font-family: "Space Mono", monospace;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 2.8em;
+            color: #f450f9;
+            background: linear-gradient(90deg, #f450f9, #c2185b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        h2 {
+            font-family: "Space Mono", monospace;
+            font-weight: 700;
+            font-style: bolder;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            font-weight: 300;
+            margin-top: 10px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 15px 30px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #f450f9;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #c2185b;
+        }
+
+        .profile-section {
+            text-align: left;
+            margin: 50px auto;
+            max-width: 800px;
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-section h2 {
+            color: #f450f9;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .profile-section p {
+            font-size: 1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .contact-form {
+            margin: 50px auto;
+            max-width: 800px;
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .contact-form button {
+            padding: 10px 20px;
+            background-color: #f450f9;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Set initial language based on previous setting or default to Dutch
+            const currentLang = localStorage.getItem("lang") || "nl";
+            document.documentElement.lang = currentLang;
+            toggleLanguageElements(currentLang);
+            updateFlag(currentLang);
+        });
+
+        function toggleLanguage() {
+            const currentLang = document.documentElement.lang === "nl" ? "en" : "nl";
+            document.documentElement.lang = currentLang;
+            localStorage.setItem("lang", currentLang);
+            toggleLanguageElements(currentLang);
+            updateFlag(currentLang);
+        }
+
+        function toggleLanguageElements(lang) {
+            const elements = document.querySelectorAll('[data-en], [data-nl]');
+            elements.forEach(element => {
+                element.textContent = element.getAttribute(`data-${lang}`);
+            });
+        }
+
+        function updateFlag(lang) {
+            const button = document.querySelector(".language-toggle button");
+            if (lang === "nl") {
+                button.innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Flag_of_the_Netherlands.svg" alt="Dutch" width="30" height="20" style="margin-right: 10px;"><img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" width="30" height="20">';
+            } else {
+                button.innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" width="30" height="20" style="margin-right: 10px;"><img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Flag_of_the_Netherlands.svg" alt="Dutch" width="30" height="20">';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="language-toggle">
+        <button onclick="toggleLanguage()">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Flag_of_the_Netherlands.svg" alt="Dutch" width="30" height="20" style="margin-right: 10px;">
+            <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" width="30" height="20">
+        </button>
+    </div>
+    <div class="container">
+        <img src="logo-1.png" alt="Datanerd Logo" class="logo">
+        <div class="title" data-en="Your partner in data-driven insights and analytics" data-nl="Uw partner in datagedreven inzichten en analyse">Uw partner in datagedreven inzichten en analyse</div>
+        <a href="#" class="cta-button" data-en="Get Started" data-nl="Aan de slag">Aan de slag</a>
+    </div>
+    <div class="profile-section">
+        <h2 data-en="About Datanerd" data-nl="Over Datanerd">Over Datanerd</h2>
+        <p data-en="Leydi van den Braken is an experienced data professional with a strong background in data analysis, business intelligence, and data visualization. She has a proven ability to turn complex data into practical insights that support strategic decision-making." data-nl="Leydi van den Braken is een ervaren data-expert met een sterke achtergrond in data-analyse, business intelligence en datavisualisatie. Ze heeft bewezen complexe data om te kunnen zetten in bruikbare inzichten die strategische besluitvorming ondersteunen.">Leydi van den Braken is een ervaren data-expert met een sterke achtergrond in data-analyse, business intelligence en datavisualisatie. Ze heeft bewezen complexe data om te kunnen zetten in bruikbare inzichten die strategische besluitvorming ondersteunen.</p>
+        <p data-en="Leydi has extensive experience across different industries, using data to identify trends, improve processes, and enhance business performance. Her skills include statistical analysis, predictive modeling, and developing interactive dashboards." data-nl="Leydi heeft uitgebreide ervaring in verschillende sectoren en gebruikt data om trends te identificeren, processen te verbeteren en de bedrijfsvoering te optimaliseren. Haar vaardigheden omvatten statistische analyse, voorspellende modellen en het ontwikkelen van interactieve dashboards.">Leydi heeft uitgebreide ervaring in verschillende sectoren en gebruikt data om trends te identificeren, processen te verbeteren en de bedrijfsvoering te optimaliseren. Haar vaardigheden omvatten statistische analyse, voorspellende modellen en het ontwikkelen van interactieve dashboards.</p>
+        <p data-en="Leydi is dedicated to helping organizations use data effectively to achieve their goals and stay ahead in the market." data-nl="Leydi helpt organisaties graag om data effectief te gebruiken zodat ze hun doelen kunnen bereiken en een voorsprong kunnen behouden in de markt.">Leydi helpt organisaties graag om data effectief te gebruiken zodat ze hun doelen kunnen bereiken en een voorsprong kunnen behouden in de markt.</p>
+    </div>
+    <div class="contact-form">
+        <h2 data-en="Contact Leydi" data-nl="Neem contact op met Leydi">Neem contact op met Leydi</h2>
+        <form name="contact" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="contact">
+            <label data-en="Name" data-nl="Naam">Naam</label>
+            <input type="text" name="name" required>
+            <label data-en="Email" data-nl="E-mail">E-mail</label>
+            <input type="email" name="email" required>
+            <label data-en="Message" data-nl="Bericht">Bericht</label>
+            <textarea name="message" rows="5" required></textarea>
+            <button type="submit" data-en="Send" data-nl="Verzenden">Verzenden</button>
+        </form>
+    </div>
+</body>
+
+</html>
